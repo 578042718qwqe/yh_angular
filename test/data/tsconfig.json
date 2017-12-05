@@ -1,0 +1,9 @@
+{
+  "name": {
+    "module": "commonjs",
+    "xxk":"3",
+    "target": "es5",
+    "sex": "女",
+    "sourceMap": true
+  }
+}

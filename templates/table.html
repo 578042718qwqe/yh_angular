@@ -1,0 +1,23 @@
+<div ng-controller="MainCtrl">
+    <!--<strong>Last Cell Edited:</strong> {{msg.lastCellEdited}}
+    <br>-->
+    <div style="float: left; width: 100%;">
+        <div class="btn btn-info" style="margin-bottom: 10px; float: left;" ng-click="add_table()">添加</div>
+        <div class="seach_text">
+            <div style="float: left; height: 30px; line-height: 30px; padding: 0 10px;">输入框:</div>
+            <input type="text" class="form-control ng-seach" id="objseach" value="">
+            <div style="float: left; padding-right: 10px;">
+                <div style="float: left; height: 30px; line-height: 30px; padding: 0 10px;">时间选择</div>
+                <input class="form-control" id="monthCtrlStart" width="45%"  onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd'})"/>
+                <div style="float: left; height: 30px; line-height: 30px; padding: 0 10px;">至</div>
+                <input class="form-control" id="monthCtrlEnd" width="45%" onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd'})"/>
+            </div>
+            <div class=" btn btn-labeled btn-primary pull-right" ng-click="searchGrid()">搜索</div>
+        </div>
+    </div>
+    <div ui-grid="gridOptions" ui-grid-edit class="grid" ui-grid-pagination style="clear: both;"></div>
+   <!-- <strong>Data Length:</strong> {{ gridOptions.data.length | number }}
+    <br>-->
+    <!--<div><strong>Last file uploaded:</strong></div>
+    <div>{{lastFile}}</div>-->
+</div>
