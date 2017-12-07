@@ -51,23 +51,11 @@
                 </div>
                 <button type="submit" class="btn btn-primary btn-block" ng-click="loginBtn()">Login</button>
             </form>
-            <button ng-click="init()">添加Cookies信息</button>
-            <button ng-click="getInfo()">获取Cookies信息</button>
         </div>
 <script>
     var app = angular.module('login', ['ui.router','ngCookies']);
     app.controller('loginadmin', function($scope,$state,$log,$cookieStore) {
         $scope.use ={};
-        $scope.init = function()
-        {
-            $log.info("init functionn");
-            $cookieStore.put("person",{name:"Rongbo_J",age:23});
-        };
-        $scope.getInfo = function()
-        {
-            var person = $cookieStore.get("person") ;
-            alert("name : " + person.name +" , "+ "age : " + person.age);
-        };
         //------------------------------------------------------------------//
         $("#siteSelect").change(function(){
             $scope.use.region =$(this).val();
@@ -80,7 +68,8 @@
         $scope.loginBtn =function () {
             if($scope.use.name == "admin" && $scope.use.name =="admin"){
                 location.href="index.html";
-                $.cookie('the_cookie', $scope.use.region);
+                $cookieStore.put("admin",{admin:$scope.use.name,password:$scope.use.password});
+                $.cookie('region', $scope.use.region);
             }
         };
     });

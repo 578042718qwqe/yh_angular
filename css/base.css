@@ -1,0 +1,28 @@
+/*CSS-2017 VUE */
+a, :focus {
+    text-decoration: none;
+    outline: 0
+}
+img, object, embed {
+    border: 0;
+    outline: 0
+}
+button, input, select, textarea {
+    font-size: 100%;
+    outline: 0;
+    vertical-align: middle
+}
+em, i {
+    font-style: normal
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+td, th, ul, ol {
+    list-style: none
+}
+
+/*Foot*/
+.foot{ width:100%; min-width:1250px; height: 80px;  clear: both; line-height:30px; text-align: center; background-color: #fff; margin-top: 18px;}
+.foot-border{ border-top: 1px solid #ddd;   padding-top:25px; padding-bottom:25px;}
