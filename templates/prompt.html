@@ -2,3 +2,13 @@
     点击
     {{response}}
 </div>
+<script>
+    $.ajax({
+        type: "GET",
+        url: getRequestUrl("sq"),
+        dataType: "json",
+        success: function(data){
+           console.log("成功数据"+data)
+        }
+    });
+</script>

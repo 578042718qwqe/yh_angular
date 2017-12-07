@@ -12,7 +12,7 @@
 					{"name":"表格插件","url":"home.jqgrid"}
 				]
 			},
-		
+
 			{
 				"name":"表单",
 				"img":"images/img/set.png",
@@ -20,7 +20,7 @@
 					{"name":"上传插件","url":"home.dropzone"},
 					{"name":"编辑器","url":"home.editor"},
 					{"name":"向导与验证","url":"home.wizard_validation"},
-					{"name":"表格插件","url":"home.form-elements"}
+					{"name":"表单插件","url":"home.form-elements"}
 				]
 			}
 		]
