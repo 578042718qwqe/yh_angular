@@ -1,31 +1,78 @@
 <!DOCTYPE html>
-<html ng-app="cookiesMod">
+<html ng-app="app">
 <head lang="en">
     <meta charset="UTF-8">
     <script src="js/angular/angular.min.js"></script>
-    <script src="https://cdn.bootcss.com/angular.js/1.5.0/angular-cookies.js"></script>
+    <script src="js/path.js"></script>
     <title>tutorial08</title>
 </head>
-<body ng-controller="CookiesController">
-<button ng-click="getInfo()">获取Cookies信息</button>
-</body>
-<script>
-    var cookiesMod = angular.module("cookiesMod",['ngCookies']);
-    cookiesMod.controller("CookiesController",function($scope,$log,$cookieStore){
-        $scope.init = function()
-        {
-            $log.info("init functionn");
-            $cookieStore.put("person",{name:"Rongbo_J",age:23});
-        };
-        $scope.getInfo = function()
-        {
-            var person = $cookieStore.get("person") ;
-            alert("name : " + person.name +" , "+ "age : " + person.age);
-        }
 
+<script>
+    var app = angular.module("app",[]);
+    app.controller('SelfCtrl', function($scope,$http) {
+        $scope.click = function () {
+            $http({
+                method: 'GET',
+                url: getRequestUrl("menuData")
+            }).then(function success(data) {
+                // 成功代码
+                console.log(data);
+                //$scope.objects2.a = response.data.name.module;
+                //$scope.objects2.f = response.data.name.xxk;
+                //$scope.objects2.h = response.data.name.sourceMap;
+                //$scope.objects2.g = response.data.name.sex;
+            });
+        };
+    });
+
+    app.config(function($httpProvider) {//拦截器
+        $httpProvider.interceptors.push('timestampMarker');
+    });
+    app.factory('timestampMarker', function() {//拦截器
+        return {
+            response: function(response) {
+                 console.log(response);
+                 return response;
+            }
+        };
     });
 </script>
+
+<body>
+<div ng-controller="SelfCtrl">
+    <a ng-click="click()">click me</a>
+</div>
+</body>
 </html>
+<!--<!DOCTYPE html>
+<html ng-app="app">
+<head lang="en">
+    <meta charset="UTF-8">
+    <script src="js/angular/angular.min.js"></script>
+    <title>tutorial08</title>
+</head>
+
+<script>
+    var app = angular.module("app",[]);
+    app.controller('SelfCtrl', function($scope) {
+        $scope.click = function () {
+            $scope.$broadcast('to-child');
+            $scope.$emit('to-parent');
+        }
+    }).controller("zzz",function ($scope) {
+        $scope.$on('to-child',function (event,data) {
+            console.log(data)
+        })
+    });
+</script>
+
+<body>
+<div ng-controller="SelfCtrl">
+    <a ng-click="click()">click me</a>
+    <div ng-controller="zzz"></div>
+</div>
+</body>
+</html>-->
 <!--
 <!DOCTYPE html>
 <html>
