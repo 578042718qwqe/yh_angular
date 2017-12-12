@@ -2,6 +2,7 @@ body {
     padding-top:39px;
     padding-bottom: 40px;
     color: #5a5a5a;
+    overflow: hidden;
 }
 /* 下面是左侧导航栏的代码 */
 .sidebar {
@@ -51,13 +52,15 @@ body {
 .ul-li-objust{ width:250px;}
 .ul-li-objust li{ width:250px; margin-bottom: 10px;}
 /*导航*/
-.dh_name{ width:100%; float: left; border-bottom: 2px solid #2a6496; }
-.dh_name .fa-backward{float: left; width: 80px; height: 50px;}
-.dh_name ul{ width:94%; margin: 0 auto;}
+.dh_name{ width:100%; float: left; border-bottom: 2px solid #2a6496; overflow: hidden; position: relative;}
+.dh_name ul{float: left; margin: 0;}
 .dh_name_view{ width:94%; margin-left: 3%; margin-top: 10px; float: left;}
 .dh_name_li{background-color:#fafafa; text-align: center; padding: 0 25px 10px 10px; border-right: 1px solid #dddddd; line-height:41px; height:41px; color: #666666; position: relative; float: left;}
 .dh_name_li .fa-times-circle{ position: absolute; top:14px; right:8px;}
 .dh_name_li div{display: block;width: 100%; float: left;  padding: 0 21px;}
+.dh_name_max{  width:3000px; position: absolute; top: 0; left: 72px;}
+.dh_name_left{ float: left;   width:80px; position: absolute;left:10px; top: 0; text-align: center;line-height:41px!important; border-right:1px  solid #666666; z-index: 1; background-color: #ffffff;}
+.dh_name_right{ float: right; width:80px; position: absolute;right:10px; top: 0; text-align: center;line-height:41px!important; border-left: 1px solid #666666; z-index: 1; background-color: #ffffff;}
 
 .gaoliang{background-color:#6F8BB8; color: #ffffff;}
 /*其他*/

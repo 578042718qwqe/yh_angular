@@ -49,8 +49,11 @@ routerApp.config(function($stateProvider,$urlRouterProvider) {//全局路由
             templateUrl: 'templates/typography.html'
         })
         .state('home.error-500', {//500
-            url: '/error-500',
-            templateUrl: 'templates/error-500.html'
+            url: '/error-500?name&id',
+            templateUrl: 'templates/error-500.html',
+            controller: function($stateParams) {
+                return alert($stateParams.name)
+            }
         })
         .state('home.error-404', {//404
             url: '/error-404',
@@ -87,5 +90,5 @@ routerApp.config(function($stateProvider,$urlRouterProvider) {//全局路由
         .state('index', {
             url: '/index',
             templateUrl: 'templates/404.html'
-        })
+        });
 });

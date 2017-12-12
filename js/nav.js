@@ -36,8 +36,7 @@ $(function(){
             $("#submenuBox").find(".tab-nav").eq(i).show().siblings(".tab-nav").hide();
         });
     });
-
-})
+});
 //标签页没有时显示主页-S
 function homePagesStatus(){
     var tabsUL = $(".J_menuTabs").find("a").length;

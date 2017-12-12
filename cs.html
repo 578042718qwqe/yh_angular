@@ -1,4 +1,44 @@
 <!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<link href="css/base.css" rel="stylesheet">
+
+<script type="text/javascript" src="https://cdn.bootcss.com/zepto/1.0rc1/zepto.min.js"></script>
+<script type="text/javascript" src="js/angular/jquery.min.js"></script>
+<head>
+    <style>
+        div.yidong
+        {
+            margin:30px;
+            width:200px;
+            height:100px;
+            background-color:yellow;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .fuji{ position:relative;}
+    </style>
+</head>
+<body>
+<div class="fuji">
+    <div class="yidong">Hello World</div>
+</div>
+<div class="anniu">按钮</div>
+<script>
+    var num = 1;
+    $(".anniu").click(function () {
+        var yy = (num++ + 10);
+        console.log("移动");
+        $(".yidong").animate({ left:yy },100,function () {
+            console.log("完成了")
+        });
+    })
+</script>
+</body>
+</html>
+
+<!--<!DOCTYPE html>
 <html ng-app="app">
 <head lang="en">
     <meta charset="UTF-8">
@@ -43,7 +83,7 @@
     <a ng-click="click()">click me</a>
 </div>
 </body>
-</html>
+</html>-->
 <!--<!DOCTYPE html>
 <html ng-app="app">
 <head lang="en">

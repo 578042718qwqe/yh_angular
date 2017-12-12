@@ -4,7 +4,7 @@
 var SERVER_URLS= [
     {name:'海南', path:'test/data/'},//测试数据
     {name:'青岛', path:'test/data2/'}//测试数据
-]
+];
 function getRequestUrl(url) {
     return SERVER_URLS[0].path+url
 }
