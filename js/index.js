@@ -64,6 +64,7 @@ routerApp.controller('dh_tab',function ($scope,$http,$rootScope,data,$log,$cooki
     $scope.isActive = "设置";
     $scope.arr = [];
     $scope.dh_show = function (name, url) {//导航栏
+        $(".dh_name").show();
         $rootScope.gaoliang = name;
         $rootScope.isActive = name;
         var find = false;
@@ -81,9 +82,6 @@ routerApp.controller('dh_tab',function ($scope,$http,$rootScope,data,$log,$cooki
             };
             $scope.arr.push(arts_s);
         }
-        console.log($scope.arr);
-        //
-        $(".dh_name").css("height","43px");
         setTimeout(function () {
             $scope.dh_with =$(".dh_name").width();
             $scope.dh_with_ul =$(".dh_name ul").width();
@@ -93,11 +91,24 @@ routerApp.controller('dh_tab',function ($scope,$http,$rootScope,data,$log,$cooki
                 console.log((($scope.dh_with_jl-$scope.dh_with)+$scope.dh_with_w));
                 $(".dh_name_max").animate({ left:-(($scope.dh_with_jl-$scope.dh_with)+$scope.dh_with_w+180) });
             }else {
-                $(".dh_name_max").animate({ left:"72px" })
+                $(".dh_name_max").animate({ left:"90px" })
             }
         },10);
     };
     $rootScope.names = $scope.arr;
+    if($location.path() != "/home/list"){//刷新获取导航
+        var arr = ($location.path()).split('/');
+        arr.splice(0,1);
+        var url = arr.join(".");
+        name="提示";
+        var obj={
+            name : name,
+            url : url
+        };
+        $rootScope.gaoliang = name;
+        $rootScope.isActive = name;
+        $rootScope.names.push(obj);
+    }
     //读取导航
     $http({
         method: 'GET',
@@ -112,7 +123,21 @@ routerApp.controller('dh_tab',function ($scope,$http,$rootScope,data,$log,$cooki
     });
 });
 
-routerApp.controller("dh_name",function ($scope,$rootScope,$state) {//导航选项
+routerApp.controller("dh_name",function ($scope,$rootScope,$state,$location) {//导航选项
+    $scope.dh_name_max_l = function () {
+        var dh_name_max_l = $(".dh_name_max").position().left;
+        console.log(dh_name_max_l);
+        if(dh_name_max_l < 90){
+            $(".dh_name_max").animate({ left:"90px" })
+        }
+    };
+    $scope.dh_name_max_r = function () {
+        var dh_name_max_r = $(".dh_name_max").position().left;
+        console.log(dh_name_max_r);
+        if(dh_name_max_r = 90){
+            $(".dh_name_max").animate({ left:"-1700px" })
+        }
+    };
     $scope.ss =function (event) {//导航点击
         $rootScope.gaoliang = $(event.target).text().trim();
         $rootScope.isActive = $(event.target).text().trim();
@@ -135,7 +160,7 @@ routerApp.controller("dh_name",function ($scope,$rootScope,$state) {//导航选�
                 $rootScope.isActive = url_text_next;
             }else {
                 $state.go("home.list");
-                $(".dh_name").css("height","0");
+                $(".dh_name").hide();
                 console.log("不存在")
             }
         }
