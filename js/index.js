@@ -63,10 +63,12 @@ routerApp.controller('dh_tab',function ($scope,$http,$rootScope,data,$log,$cooki
     //设置导航
     $scope.isActive = "设置";
     $scope.arr = [];
+    $rootScope.Storage=window.sessionStorage;
     $scope.dh_show = function (name, url) {//导航栏
         $(".dh_name").show();
         $rootScope.gaoliang = name;
         $rootScope.isActive = name;
+        $rootScope.Storage.name = name;
         var find = false;
         for(var i = 0; i < $scope.arr.length;i++) {
             if($scope.arr[i].name == name) {
@@ -100,7 +102,7 @@ routerApp.controller('dh_tab',function ($scope,$http,$rootScope,data,$log,$cooki
         var arr = ($location.path()).split('/');
         arr.splice(0,1);
         var url = arr.join(".");
-        name="提示";
+        var name = $rootScope.Storage.name;
         var obj={
             name : name,
             url : url
@@ -141,6 +143,7 @@ routerApp.controller("dh_name",function ($scope,$rootScope,$state,$location) {//
     $scope.ss =function (event) {//导航点击
         $rootScope.gaoliang = $(event.target).text().trim();
         $rootScope.isActive = $(event.target).text().trim();
+        $rootScope.Storage.name = $(event.target).text().trim()
     };
     $scope.dh_close = function (event) {//导航关闭
         var key = $(event.target).attr('data');
