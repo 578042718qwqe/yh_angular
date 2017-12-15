@@ -98,7 +98,7 @@ routerApp.controller('dh_tab',function ($scope,$http,$rootScope,data,$log,$cooki
         },10);
     };
     $rootScope.names = $scope.arr;
-    if($location.path() != "/home/list"){//刷新获取导航
+    if($location.path() != "/home/list" && $rootScope.Storage.name != undefined){//刷新获取导航
         var arr = ($location.path()).split('/');
         arr.splice(0,1);
         var url = arr.join(".");
@@ -188,8 +188,8 @@ routerApp.factory('timestampMarker', function($rootScope,$location) {//拦截器
          }*/
     };
 });
-routerApp.run(function($rootScope,$location) {//路由监听
-    /* 监听路由的状态变化 */
+/*routerApp.run(function($rootScope,$location) {//路由监听
+    /!* 监听路由的状态变化 *!/
     $rootScope.$on('locaton_url',function(event, toState, toParams, fromState, fromParams) {
         console.log($location.path());
         return false
@@ -200,7 +200,7 @@ routerApp.controller('mouseenter',function ($log,$scope) {
     $scope.mouse = function (index) {
         $log.log(index)
     };
-});
+});*/
 /*routerApp.controller('myCtrl', function ($scope,addition) {//注入模块一
     $scope.ass = addition.add(5,6);
 });*/
