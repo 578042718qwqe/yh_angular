@@ -1,0 +1,301 @@
+<style>
+    .tabs{ clear: both; border-bottom: 1px #dfa020 dashed; margin: 30px 0; position: relative; text-align: center; font-size:26px; font-family: "微软雅黑 Light"; font-weight: bold;}
+    .centen{width:70%;margin: 0 auto;}
+</style>
+<!--警示按钮-->
+<div class="tabs">警示按钮</div>
+<div ng-controller="AlertDemoCtrl"  class="centen">
+    <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</uib-alert>
+    <button type="button" class='btn btn-default' ng-click="addAlert()">Add Alert</button>
+</div>
+<br>
+<!--下拉窗口-->
+<div class="tabs">下拉窗口</div>
+<div ng-controller="AccordionDemoCtrl" class="centen">
+    <script type="text/ng-template" id="group-template.html">
+        <div class="panel-heading">
+            <h4 class="panel-title" style="color:#fa39c3">
+                <a href tabindex="0" class="accordion-toggle" ng-click="toggleOpen()" uib-accordion-transclude="heading">
+          <span uib-accordion-header ng-class="{'text-muted': isDisabled}">
+            {{heading}}
+          </span>
+                </a>
+            </h4>
+        </div>
+        <div class="panel-collapse collapse" uib-collapse="!isOpen">
+            <div class="panel-body" style="text-align: right" ng-transclude></div>
+        </div>
+    </script>
+
+    <p>
+        <button type="button" class="btn btn-default btn-sm" ng-click="status.open = !status.open">Toggle last panel</button>
+        <button type="button" class="btn btn-default btn-sm" ng-click="status.isFirstDisabled = ! status.isFirstDisabled">Enable / Disable first panel</button>
+    </p>
+
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" ng-model="oneAtATime">
+            Open only one at a time
+        </label>
+    </div>
+    <uib-accordion close-others="oneAtATime">
+        <div uib-accordion-group class="panel-default" heading="Static Header, initially expanded" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
+            This content is straight in the template.
+        </div>
+        <div uib-accordion-group class="panel-default" heading="{{group.title}}" ng-repeat="group in groups">
+            {{group.content}}
+        </div>
+        <div uib-accordion-group class="panel-default" heading="Dynamic Body Content">
+            <p>The body of the uib-accordion group grows to fit the contents</p>
+            <button type="button" class="btn btn-default btn-sm" ng-click="addItem()">Add Item</button>
+            <div ng-repeat="item in items">{{item}}</div>
+        </div>
+        <div uib-accordion-group class="panel-default" heading="Custom template" template-url="group-template.html">
+            Hello
+        </div>
+        <div uib-accordion-group class="panel-default" is-open="status.isCustomHeaderOpen" template-url="group-template.html">
+            <uib-accordion-heading>
+                Custom template with custom header template <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.isCustomHeaderOpen, 'glyphicon-chevron-right': !status.isCustomHeaderOpen}"></i>
+            </uib-accordion-heading>
+            World
+        </div>
+        <div uib-accordion-group class="panel-danger" heading="Delete account">
+            <p>Please, to delete your account, click the button below</p>
+            <button class="btn btn-danger">Delete</button>
+        </div>
+        <div uib-accordion-group class="panel-default" is-open="status.open">
+            <uib-accordion-heading>
+                I can have markup, too! <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+            </uib-accordion-heading>
+            This is just some content to illustrate fancy headings.
+        </div>
+    </uib-accordion>
+</div>
+<br>
+<!--模态窗口-->
+<div class="tabs">模态窗口</div>
+<div ng-controller="ModalDemoCtrl as $ctrl" class="modal-demo centen">
+    <script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title" id="modal-title">I'm a modal!</h3>
+        </div>
+        <div class="modal-body" id="modal-body">
+            <ul>
+                <li ng-repeat="item in $ctrl.items">
+                    <a href="#" ng-click="$event.preventDefault(); $ctrl.selected.item = item">{{ item }}</a>
+                </li>
+            </ul>
+            Selected: <b>{{ $ctrl.selected.item }}</b>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="$ctrl.ok()">OK</button>
+            <button class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">Cancel</button>
+        </div>
+    </script>
+    <script type="text/ng-template" id="stackedModal.html">
+        <div class="modal-header">
+            <h3 class="modal-title" id="modal-title-{{name}}">The {{name}} modal!</h3>
+        </div>
+        <div class="modal-body" id="modal-body-{{name}}">
+            Having multiple modals open at once is probably bad UX but it's technically possible.
+        </div>
+    </script>
+
+    <button type="button" class="btn btn-default" ng-click="$ctrl.open()">Open me!</button>
+    <button type="button" class="btn btn-default" ng-click="$ctrl.open('lg')">Large modal</button>
+    <button type="button" class="btn btn-default" ng-click="$ctrl.open('sm')">Small modal</button>
+    <button type="button"
+            class="btn btn-default"
+            ng-click="$ctrl.open('sm', '.modal-parent')">
+        Modal appended to a custom parent
+    </button>
+    <button type="button" class="btn btn-default" ng-click="$ctrl.toggleAnimation()">Toggle Animation ({{ $ctrl.animationsEnabled }})</button>
+    <button type="button" class="btn btn-default" ng-click="$ctrl.openComponentModal()">Open a component modal!</button>
+    <button type="button" class="btn btn-default" ng-click="$ctrl.openMultipleModals()">
+        Open multiple modals at once
+    </button>
+    <div ng-show="$ctrl.selected">Selection from a modal: {{ $ctrl.selected }}</div>
+    <div class="modal-parent">
+    </div>
+</div>
+<!--选项卡-->
+<div class="tabs">选项卡</div>
+<div ng-controller="TabsDemoCtrl" class="centen">
+    <p>Select a tab by setting active binding to true:</p>
+    <p>
+        <button type="button" class="btn btn-default btn-sm" ng-click="active = 1">Select second tab</button>
+        <button type="button" class="btn btn-default btn-sm" ng-click="active = 2">Select third tab</button>
+    </p>
+    <p>
+        <button type="button" class="btn btn-default btn-sm" ng-click="tabs[1].disabled = ! tabs[1].disabled">Enable / Disable third tab</button>
+    </p>
+    <hr />
+
+    <uib-tabset active="active">
+        <uib-tab index="0" heading="Static title">Static content</uib-tab>
+        <uib-tab index="$index + 1" ng-repeat="tab in tabs" heading="{{tab.title}}" disable="tab.disabled">
+            {{tab.content}}
+        </uib-tab>
+        <uib-tab index="3" select="alertMe()">
+            <uib-tab-heading>
+                <i class="glyphicon glyphicon-bell"></i> Alert!
+            </uib-tab-heading>
+            I've got an HTML heading, and a select callback. Pretty cool!
+        </uib-tab>
+    </uib-tabset>
+
+    <hr />
+
+    <uib-tabset active="activePill" vertical="true" type="pills">
+        <uib-tab index="0" heading="Vertical 1">Vertical content 1</uib-tab>
+        <uib-tab index="1" heading="Vertical 2">Vertical content 2</uib-tab>
+    </uib-tabset>
+
+    <hr />
+
+    <uib-tabset active="activeJustified" justified="true">
+        <uib-tab index="0" heading="Justified">Justified content</uib-tab>
+        <uib-tab index="1" heading="SJ">Short Labeled Justified content</uib-tab>
+        <uib-tab index="2" heading="Long Justified">Long Labeled Justified content</uib-tab>
+    </uib-tabset>
+
+    <hr />
+
+    Tabbed pills with CSS classes
+    <uib-tabset type="pills">
+        <uib-tab heading="Default Size">Tab 1 content</uib-tab>
+        <uib-tab heading="Small Button" classes="btn-sm">Tab 2 content</uib-tab>
+    </uib-tabset>
+
+    <hr />
+
+    Tabs using nested forms:
+    <form name="outerForm" class="tab-form-demo">
+        <uib-tabset active="activeForm">
+            <uib-tab index="0" heading="Form Tab">
+                <ng-form name="nestedForm">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" class="form-control" required ng-model="model.name"/>
+                    </div>
+                </ng-form>
+            </uib-tab>
+            <uib-tab index="1" heading="Tab One">
+                Some Tab Content
+            </uib-tab>
+            <uib-tab index="2" heading="Tab Two">
+                More Tab Content
+            </uib-tab>
+        </uib-tabset>
+    </form>
+    Model:
+    <pre>{{ model | json }}</pre>
+    Nested Form:
+    <pre>{{ outerForm.nestedForm | json }}</pre>
+</div>
+<!--自动检索-->
+<div class="tabs">自动检索</div>
+<style>
+    .typeahead-demo .custom-popup-wrapper {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+        display: none;
+        background-color: #f9f9f9;
+    }
+
+    .typeahead-demo .custom-popup-wrapper > .message {
+        padding: 10px 20px;
+        border-bottom: 1px solid #ddd;
+        color: #868686;
+    }
+
+    .typeahead-demo .custom-popup-wrapper > .dropdown-menu {
+        position: static;
+        float: none;
+        display: block;
+        min-width: 160px;
+        background-color: transparent;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+    }
+</style>
+
+<script type="text/ng-template" id="customTemplate.html">
+    <a>
+        <img ng-src="http://upload.wikimedia.org/wikipedia/commons/thumb/{{match.model.flag}}" width="16">
+        <span ng-bind-html="match.label | uibTypeaheadHighlight:query"></span>
+    </a>
+</script>
+
+<script type="text/ng-template" id="customPopupTemplate.html">
+    <div class="custom-popup-wrapper"
+         ng-style="{top: position().top+'px', left: position().left+'px'}"
+         style="display: block;"
+         ng-show="isOpen() && !moveInProgress"
+         aria-hidden="{{!isOpen()}}">
+        <p class="message">select location from drop down.</p>
+
+        <ul class="dropdown-menu" role="listbox">
+            <li class="uib-typeahead-match" ng-repeat="match in matches track by $index" ng-class="{active: isActive($index) }"
+                ng-mouseenter="selectActive($index)" ng-click="selectMatch($index)" role="option" id="{{::match.id}}">
+                <div uib-typeahead-match index="$index" match="match" query="query" template-url="templateUrl"></div>
+            </li>
+        </ul>
+    </div>
+</script>
+
+<div class='container-fluid typeahead-demo centen' ng-controller="TypeaheadCtrl">
+
+    <h4>Static arrays</h4>
+    <pre>Model: {{selected | json}}</pre>
+    <input type="text" ng-model="selected" uib-typeahead="state for state in states | filter:$viewValue | limitTo:8" class="form-control">
+
+    <h4>Asynchronous results</h4>
+    <pre>Model: {{asyncSelected | json}}</pre>
+    <input type="text" ng-model="asyncSelected" placeholder="Locations loaded via $http" uib-typeahead="address for address in getLocation($viewValue)" typeahead-loading="loadingLocations" typeahead-no-results="noResults" class="form-control">
+    <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
+    <div ng-show="noResults">
+        <i class="glyphicon glyphicon-remove"></i> No Results Found
+    </div>
+
+    <h4>ngModelOptions support</h4>
+    <pre>Model: {{ngModelOptionsSelected | json}}</pre>
+    <input type="text" ng-model="ngModelOptionsSelected" ng-model-options="modelOptions" uib-typeahead="state for state in states | filter:$viewValue | limitTo:8" class="form-control">
+
+    <h4>Custom templates for results</h4>
+    <pre>Model: {{customSelected | json}}</pre>
+    <input type="text" ng-model="customSelected" placeholder="Custom template" uib-typeahead="state as state.name for state in statesWithFlags | filter:{name:$viewValue}" typeahead-template-url="customTemplate.html" class="form-control" typeahead-show-hint="true" typeahead-min-length="0">
+
+    <h4>Custom popup templates for typeahead's dropdown</h4>
+    <pre>Model: {{customPopupSelected | json}}</pre>
+    <input type="text" ng-model="customPopupSelected" placeholder="Custom popup template" uib-typeahead="state as state.name for state in statesWithFlags | filter:{name:$viewValue}" typeahead-popup-template-url="customPopupTemplate.html" class="form-control">
+</div>
+<!--进度条-->
+<div class="tabs">进度条</div>
+<div ng-controller="ProgressDemoCtrl" class="centen">
+
+    <h3>Static</h3>
+    <div class="row">
+        <div class="col-sm-4"><uib-progressbar value="55"></uib-progressbar></div>
+        <div class="col-sm-4"><uib-progressbar class="progress-striped" value="22" type="warning">22%</uib-progressbar></div>
+        <div class="col-sm-4"><uib-progressbar class="progress-striped active" max="200" value="166" type="danger"><i>166 / 200</i></uib-progressbar></div>
+    </div>
+
+    <hr />
+    <h3>Dynamic <button type="button" class="btn btn-sm btn-primary" ng-click="random()">Randomize</button></h3>
+    <uib-progressbar max="max" value="dynamic"><span style="color:white; white-space:nowrap;">{{dynamic}} / {{max}}</span></uib-progressbar>
+
+    <small><em>No animation</em></small>
+    <uib-progressbar animate="false" value="dynamic" type="success"><b>{{dynamic}}%</b></uib-progressbar>
+
+    <small><em>Object (changes type based on value)</em></small>
+    <uib-progressbar class="progress-striped active" value="dynamic" type="{{type}}">{{type}} <i ng-show="showWarning">!!! Watch out !!!</i></uib-progressbar>
+
+    <hr />
+    <h3>Stacked <button type="button" class="btn btn-sm btn-primary" ng-click="randomStacked()">Randomize</button></h3>
+    <uib-progress><uib-bar ng-repeat="bar in stacked track by $index" value="bar.value" type="{{bar.type}}"><span ng-hide="bar.value < 5">{{bar.value}}%</span></uib-bar></uib-progress>
+
+</div>

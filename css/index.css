@@ -40,9 +40,19 @@ body {
 }
 /*tab 切换*/
 .tab-all{ width: 300px; float: left;}
-.tab-head{ width: 300px; float: left; background-color: #44a3dd;}
-.tab-head li{ float: left; width: 33%; text-align: center;}
-.tab-head li.active{ background-color: #FFFFFF;}
+.tab-head{ width: 300px; float: left; border-bottom: 1px solid #ddd; }
+.tab-head li{ float: left; line-height: 3; width: 33%; text-align: center;}
+.tab-head li.tabs-active{
+    margin-right: 2px;
+    line-height: 3;
+    border-radius: 4px 4px 0 0;
+    cursor: default;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+    color: #000000
+}
+.tab-head li i{ margin-right: 6px;}
 .tab-context{ width: 300px; float: left;}
 /*index_li*/
 .index_li{ width: 500px;}

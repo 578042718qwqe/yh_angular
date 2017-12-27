@@ -62,7 +62,7 @@
 		]
 	},
 	{
-		"name":"table",
+		"name":"Angular-UI",
 		"img":"images/img/anay.png",
 		"child":[
 			{
@@ -72,10 +72,11 @@
 					{"name":"500页面","url":"home.error-500"}
 				]
 			},{
-				"name":"页面",
+				"name":"Angular-UI 组件",
 				"img":"images/img/set.png",
 				"child":[
-					{"name":"404页面","url":"home.error-404"}
+					{"name":"Ui Bootstrap","url":"home.Bootstrap"},
+					{"name":"ui-slider","url":"home.sortable"}
 				]
 			}
 		]

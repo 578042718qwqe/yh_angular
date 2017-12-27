@@ -12,37 +12,36 @@
     <script type="text/javascript" src="js/angular/angular-ui-router.min.js"></script>
     <script type="text/javascript" src="js/angular/angular-animate.js"></script>
     <script type="text/javascript" src="js/path.js"></script>
-    <script src="https://cdn.bootcss.com/angular.js/1.5.0/angular-cookies.js"></script>
-    <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-    <!--可编辑表格注入-->
-    <link rel="stylesheet" href="http://ui-grid.info/release/ui-grid.css" type="text/css">
-    <script type="text/javascript" src="js/ui-grid-angular/csv.js"></script>
-    <script type="text/javascript" src="js/ui-grid-angular/pdfmake.js"></script>
-    <script type="text/javascript" src="js/ui-grid-angular/vfs_fonts.js"></script>
-    <script type="text/javascript" src="js/ui-grid-angular/lodash.min.js"></script>
-    <script type="text/javascript" src="js/ui-grid-angular/jszip.min.js"></script>
-    <script type="text/javascript" src="js/ui-grid-angular/excel-builder.dist.js"></script>
-    <script type="text/javascript" src="js/ui-grid-angular/ui-grid.js"></script>
-    <!--可编辑表格注入end-->
+    <script src="js/cookies/angular-cookies.js"></script>
+    <script src="js/cookies/jquery.cookie.min.js"></script>
     <!--时间控件-->
     <script language="javascript" type="text/javascript" src="js/My97DatePicker/WdatePicker.js"></script>
     <!--自定义-->
     <script type="text/javascript" src="js/index.js" language="javascript"></script>
     <script type="text/javascript" src="js/router.js"></script>
     <!--提示弹框-->
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="js/sweetalert/sweetalert.min.js"></script>
     <!--导航栏-->
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/hds-ace.css" rel="stylesheet">
     <script type="text/javascript" src="js/nav.js"></script>
-    <!--CSS-->
+    <!--table-->
+    <script type="text/javascript" src="js/table.js"></script>
+    <!--ui-boostarp-->
+    <script src="js/custom.js"></script>
+    <script src="js/ui-bootstrap/angular-animate.min.js"></script>
+    <script src="js/ui-bootstrap/angular-sanitize.js"></script>
+    <script src="js/ui-bootstrap/ui-bootstrap-tpls.js"></script>
+    <!--ui-sortable-->
+    <script src="js/ui-bootstrap/jquery-ui.min.js"></script>
+    <script src="js/ui-bootstrap/sortable.js"></script>
 </head>
 <body class="full-height-layout" ng-app="routerApp">
 <div class="wrapper">
     <!--顶部-S-->
     <div class="header-box" id="headerBox">
         <!--logo-S-->
-        <span class="logo-box"><img id="littlelogoImg" src="images/newHDS.jpg" alt=""></span>
+        <span class="logo-box"><img id="littlelogoImg" data-ng-src="images/newHDS.jpg" alt=""></span>
         <!--logo-E-->
         <!--菜单-S-->
         <div class="nav-box" ng-controller="dh_tab">
@@ -50,7 +49,7 @@
                 <li ng-repeat="data in shezhi" ng-class="{'{{data.name}}': 'dh_right', 'name_l': 'inactive'}[isActive]" ng-mouseenter="showtimes = true" ng-mouseleave="showtimes = false" ng-class="{'on':showtimes}">
                     <!--主菜单-S-->
                     <div class="main-nav">
-                        <em><img src="{{data.img}}"></em>
+                        <em><img data-ng-src="{{data.img}}"></em>
                         <span>{{data.name}}</span>
                         <i class="nav-down-arrow"></i>
                     </div>
@@ -58,7 +57,7 @@
                     <!--子菜单-S-->
                     <div id="submenuNavBox1" class="submenu-nav-box" ng-mouseenter="showtimes = true" ng-mouseleave="showtimes = false" ng-class="{'on':showtimes}">
                         <div class="submenu-nav-content" ng-repeat="datatwo in data.child" >
-                            <h3><img src="{{datatwo.img}}">{{datatwo.name}}</h3>
+                            <h3><img data-ng-src="{{datatwo.img}}">{{datatwo.name}}</h3>
                             <span class="J_menuItem" href="html/button.html"   ng-repeat="datatree in datatwo.child" ui-sref="{{datatree.url}}" ng-click="dh_show(datatree.name,datatree.url,$event)">
                                 {{datatree.name}}
                             </span>

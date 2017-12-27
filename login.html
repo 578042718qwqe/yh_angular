@@ -12,8 +12,8 @@
     <script type="text/javascript" src="js/angular/angular-ui-router.min.js"></script>
     <script type="text/javascript" src="js/angular/angular-animate.js"></script>
     <script type="text/javascript" src="js/index.js" language="javascript"></script>
-    <script src="https://cdn.bootcss.com/angular.js/1.5.0/angular-cookies.js"></script>
-    <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script src="js/cookies/angular-cookies.js"></script>
+    <script src="js/cookies/jquery.cookie.min.js"></script>
     <style>
         body{ background-color:#f7f7f7;}
         .login{ width:350px; height:500px; margin: 0 auto; background-color:#f7f7f7; border: 1px solid #dddddd;}
@@ -53,6 +53,7 @@
             </form>
         </div>
 <script>
+    //账号admin 密码admin
     var app = angular.module('login', ['ui.router','ngCookies']);
     app.controller('loginadmin', function($scope,$state,$log,$cookieStore) {
         $scope.use ={};

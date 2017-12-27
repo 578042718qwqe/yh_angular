@@ -38,8 +38,9 @@ angular.module('addressFormatter', []).filter('address', function () {
     };
 });
 
-var routerApp = angular.module('routerApp', ['ui.router',"tabs", 'ui.grid', 'ui.grid.edit', 'addressFormatter','ui.grid.pagination',"win","data_path",'ngCookies','ngAnimate', 'ngSanitize','ui.bootstrap','ui.sortable','table']);//全局模块
-routerApp.controller("dj",function ($scope,addition,$http,data) {//提示框
+var routerApp = angular.module('routerApp', ['ui.router',"tabs","win","data_path",'ngCookies','ngAnimate', 'ngSanitize','ui.bootstrap','ui.sortable','table']);//全局模块
+routerApp.controller("dj",function ($scope,addition,$http,data,opt1) {//提示框
+
     $http.jsonp("https://api.github.com?callback=JSON_CALLBACK") .success(function(data) {
         console.log(data);
         // 数据
