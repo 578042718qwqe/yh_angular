@@ -1,8 +1,0 @@
-jsonpCallback({
-	"footer": [],
-	"message": "",
-	"obj": 50,
-	"status": 1,
-	"step": 0,
-	"total": 77
-})
