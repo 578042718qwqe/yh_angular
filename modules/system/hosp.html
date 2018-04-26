@@ -1,0 +1,48 @@
+<div ng-controller="hosp_dgl" class="controller-class">
+    <div id="hosp_dg-vie" style="margin-bottom: 10px; margin-top: 10px; float: left;">
+        <span class="span1">名称:</span>
+        <span><input type="text" value="" class="form-control" id="seach1" data-id="name" placeholder="请输入查询条件"></span>
+        <!-- <span><input type="text" value="" class="form-control" id="seach2" data-id="hospId2"></span> -->
+        <span>
+        <span class="btn btn-primary permiss" id="hosp_showItemId"><i class="ace-icon glyphicon glyphicon-search"></i>查询</span>
+        <span class="btn btn-primary permiss" id="hosp_addkaohe" ><i class="ace-icon glyphicon glyphicon-plus"></i>新增医院</span>
+    </span>
+    </div>
+    <ui-table  class="table-ui"></ui-table>
+    <!-- 模态框（Modal） -->
+    <div class="modal fade" id="hosp_identifier" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        {{dlgTitle}}
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="div_input"><span>名字:</span><input type="text" name="" placeholder="请输入名字" class="form-control" ng-model="model.hospitalName"></div>
+                    <div class="div_input"><span>地址:</span><input type="text" name="" placeholder="请输入地址" class="form-control" ng-model="model.hospitalAddress"></div>
+                    <div class="div_input"><span>级别:</span><input type="text" name="" placeholder="请输入级别" class="form-control" ng-model="model.hospitalClass"></div>
+                    <div class="div_input"><span>电话:</span><input type="text" name="" placeholder="请输入电话" class="form-control" ng-model="model.hospitalTelephone"></div>
+                    <div class="div_input"><span>类型:</span>
+                    	<select ng-model="model.orgType" class="form-control">
+                    		<option ng-repeat="x in orgTypes" value="{{x.value}}" ng-selected="model.orgType==x.value">{{x.text}}</option>
+                    	</select>
+                    </div>
+<!--                     <div class="div_input"><span>car2:</span><input type="text" name="" class="form-control" ng-model="objects.car2"></div> -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+<!--                     anniu('qq','#identifier'); -->
+                    <button type="button" class="btn btn-primary" id="tijiao" ng-click="dlgSave()" ng-disabled="!model.hospitalName||!model.hospitalAddress||!model.hospitalClass||!model.hospitalTelephone||!model.orgType">
+                        提交
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+</div>
+
+ 

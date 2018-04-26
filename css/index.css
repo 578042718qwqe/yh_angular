@@ -1,0 +1,245 @@
+body {
+    color: #5a5a5a;
+}
+html,body{height:100%}
+body{ margin:0}
+/* 下面是小导航栏的代码 */
+.sidebar {
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #ddd;
+    border-right: 1px solid #eee;
+}
+.nav-sidebar {
+    margin-right: -21px;
+    margin-bottom: 20px;
+    margin-left: -20px;
+}
+.nav-sidebar > li > a {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+    color: #fff;
+    background-color: #428bca;
+}
+.main {
+    padding: 20px;
+}
+.main .page-header {
+    margin-top: 0;
+}
+/*tab 切换*/
+.tab-all{ width: 300px; float: left;}
+.tab-head{ width: 300px; float: left; border-bottom: 1px solid #ddd; }
+.tab-head li{ float: left; line-height: 3; width: 33%; text-align: center;}
+.tab-head li.tabs-active{
+    margin-right: 2px;
+    line-height: 3;
+    border-radius: 4px 4px 0 0;
+    cursor: default;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+    color: #000000
+}
+.tab-head li i{ margin-right: 6px;}
+.tab-context{ width: 300px; float: left;}
+/*index_li*/
+.index_li{ width: 500px;}
+.index_li ul{ width:100%;}
+.index_li ul li{ width:20%; float: left; text-align: center; background-color: #44a3dd; margin: 0 10px;}
+.ul-li-objust{ width:250px;}
+.ul-li-objust li{ width:250px; margin-bottom: 10px;}
+/*导航*/
+.dh_name{ width:100%; height: 43px; border-top: 1px solid #cccccc; float: left; border-bottom: 2px solid #2a6496; overflow: hidden; position:absolute; top:44px; left: 0; z-index: 99;}
+.dh_name ul{float: left; margin: 0;}
+.dh_name ul li{ margin: 0; height:43px; line-height:41px;}
+.dh_name_view{ width:100%; position:absolute; top:87px; left: 0;  height: calc(100% - 87px); float: left; overflow-y:auto; overflow-x: hidden;}
+.dh_name_li{background-color:#fafafa; cursor: pointer; text-align: center; padding: 0 25px 10px 10px; border-right: 1px solid #dddddd; line-height:41px; height:40px; position: relative; float: left; color: #ffffff;}
+.dh_name_li .fa-times-circle{ position: absolute; top:14px; right:8px;}
+.dh_name_li div{display: block;width: 100%; float: left;  padding: 0 21px;}
+.dh_name_max{  width:3000px; position: absolute; top: 0; left: 90px;}
+.dh_name_left{ float: left;   width:80px; position: absolute;left:10px; top: 0; text-align: center;line-height:41px!important; border-right:1px  solid #666666; z-index: 1; background-color: #ffffff;}
+.dh_name_right{ float: right; width:80px; position: absolute;right:10px; top: 0; text-align: center;line-height:41px!important; border-left: 1px solid #666666; z-index: 1; background-color: #ffffff;}
+
+.gaoliang{background-color:#6F8BB8; color: #ffffff; cursor: pointer;}
+.tab-nav{ display: none;}
+.tab-nav.on{ display:block;}
+/*其他*/
+.submenu-nav-box.on{display: block!important;}
+.dh_tab_to.on {
+    display: block;
+}
+
+.dh_tab_to {
+    background-color: #FFFFFF;
+}
+
+.row li {
+    cursor: pointer;
+}
+
+.hide {
+    display: none;
+}
+
+.dh_high {
+    text-align: center;
+}
+
+.grid {
+    height:100%;  width: 100%;
+}
+.table-ui{float: left; height: calc(100% - 58px); width:calc(100%); margin-left:2px; }
+
+.navbar-inverse {
+    background-color: #2D528D;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #ffffff;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover {
+    background-color: #2aabd2;
+}
+
+.navbar-brand {
+    padding-top: 8px;
+}
+
+.dh_right {
+    float: right !important;
+}
+
+.navbar-header {
+    width: 10%;
+}
+
+.navbar-nav {
+    width: 80%;
+}
+.dh_tab>li>a{ padding-top:0; padding-bottom: 0; height:50px; line-height:50px;}
+.dropdown-menu{ width:300px;}
+.uib-daypicker{float: left; margin: 5px 0 6px 6px;}
+.uib-monthpicker{ margin:6px 8px 6px 22px;}
+.dh_tab li{ float: left;}
+.dh_tab>li>a{ display: block;}
+.delet-ng{display: block; line-height:30px; height:30px; padding-left:6px;}
+.seach_text{ float:left; margin-left: 10px;}
+.seach_text .form-control{width: 150px; float: left;}
+.seach_text .Wdate{ float: left; height: 34px; margin:0 10px; border: 1px silver solid;}
+.grid-edit{ padding:5px 10px 0 10px; float: left; color: #eea236;}
+.grid-delet{ padding:5px 10px 0 10px; float: left;color: #f43838;}
+.grid-edit:hover{ padding:5px 10px 0 10px; float: left;color: #eea236;}
+.grid-edit:visited{ padding:5px 10px 0 10px; float: left;color: #eea236;}
+.grid-delet:hover{ padding:5px 10px 0 10px; float: left;color: #f43838;}
+.grid-delet:visited{ padding:5px 10px 0 10px; float: left;color: #f43838;}
+/*用户管理*/
+#module_dg-vie{margin-bottom: 10px; float: left;}
+#searchBtn{ padding: 0 10px; line-height: 50px; cursor: pointer;}
+.dg-bottm{ margin-bottom: 10px;}
+.form-control{ float: left; width: 150px; margin-right: 10px;}
+.div_input{ width: 100%; height: 50px; float: left;}
+.div_input span{ float: left; padding-right: 10px; line-height: 35px; text-align: right;}
+.modal-body li { line-height: 25px;}
+.modal-body li input{float: left; margin-top: 7px; margin-right:6px;}
+#user_dg-vie{ margin-bottom: 10px; float: left;}
+#user_dg-vie span{float: left;}
+#user_dg-vie .span1{ line-height: 32px; display: block; margin-right: 10px;}
+#user_dg-vie .btn{ margin-left: 10px;}
+#module_dg-vie span.span1{ float: left; line-height: 33px; margin-right: 10px;}
+#role_dg-vie{ margin-bottom: 10px;}
+#role_dg-vie .span1{ line-height: 32px; display: block; margin-right: 10px;}
+#role_dg-vie .btn{ margin-left: 10px;}
+#role_dg-vie span.span1{ float: left; line-height: 33px; margin-right: 10px;}
+#hosp_dg-vie{ margin-bottom: 10px;}
+#hosp_dg-vie .span1{ line-height: 32px; display: block; margin-right: 10px;}
+#hosp_dg-vie .btn{ margin-left: 10px;}
+#hosp_dg-vie span.span1{ float: left; line-height: 33px; margin-right: 10px;}
+#comp_dg-vie{ margin-bottom: 10px;}
+#comp_dg-vie .span1{ line-height: 32px; display: block; margin-right: 10px;}
+#comp_dg-vie .btn{ margin-left: 10px;}
+#comp_dg-vie span.span1{ float: left; line-height: 33px; margin-right: 10px;}
+#logger_dg-vie{ margin-bottom: 10px;}
+#logger_dg-vie .span1{ line-height: 32px; display: block; margin-right: 10px;}
+#logger_dg-vie .btn{ margin-left: 10px;}
+#logger_dg-vie span.span1{ float: left; line-height: 33px; margin-right: 10px;}
+/*地区*/
+.data_maintenance{height: 100%;}
+.data_maintenance .form-group{ margin-bottom:8px;}
+.data_maintenance_ul{margin-top:6px; width:96%; margin-bottom:0 !important;}
+.data_maintenance_ul li{ min-height:51px;}
+.data_maintenance_ul li input{ min-height: 30px; line-height: 30px;}
+.data_maintenance_ul li span{ float: left; text-align: right;}
+.data_maintenance_ul li span.list-sp1{ min-width:77px; line-height:35px; padding-right:10px;}
+.data_maintenance_name{float: left; line-height: 35px; height: 35px; margin-right: 10px;}
+.data_maintenance_state{ margin-top: 4px; margin-left: 5px; display: block;}
+.ui-grid-viewport{ overflow-y: scroll; background-color: #ffffff; overflow-x: inherit!important;}
+.data_maintenance_right{ height:calc(100% - 10px); padding-top: 10px;}
+.data_maintenance_right_zi{height: 100%; overflow-y: auto; margin-left: 3px; margin-right: 3px;}
+.data_maintenance_right_qx{float: left; line-height: 35px; padding-right: 5px;}
+.data_maintenance_role{ width:70px; text-align: center; line-height:35px; margin-top:8px; position:relative; background-color:#337ab7; color: #ffffff;}
+.data_maintenance_role:before{
+    content: "";  /*:before和:after必带技能，重要性为满5颗星*/
+    display: block;
+    position: absolute;  /*日常绝对定位*/
+    top:1px;
+    width:30px;
+    height:33px;
+    left:70px;
+    border-top:17px solid rgba(0,0,0,0);
+    border-right:17px solid  rgba(0,0,0,0);
+    border-bottom:17px solid #337ab7;
+    border-left:17px solid  rgba(0,0,0,0);
+    -webkit-transform:rotate(90deg);
+}
+/**/
+.swal-button--confirm{
+    background-color: #428bca;
+    border: 1px solid #357ebd;
+}
+.swal-button--danger{
+    background-color:#f43838;
+    border: 1px solid #f43838;
+}
+.glyphicon-region{ float: left; margin-top:10px;
+    width: 96%;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding:10px 20px;
+}
+.glyphicon-region_js{ line-height: 25px;}
+.glyphicon-region_js input{ margin-top: 0!important;}
+.glyphicon-region span.glyphicon-region-s{float: left; width:65px; margin-right: 10px; text-align: right; line-height: 30px;}
+.glyphicon-region .form-control{ width: auto;}
+.glyphicon-seach{ padding-left:16px;}
+.glyphicon-seach .btn{ padding-left:16px;}
+.glyphicon-seach .form-control{ width: auto;}
+/**/
+.full button span {
+    background-color: limegreen;
+    border-radius: 32px;
+    color: black;
+}
+.partially button span {
+    background-color: orange;
+    border-radius: 32px;
+    color: black;
+}
+.list-group-item-data{ float: left; margin-top:7px;}
+.permiss{ float:left; margin-left: 10px;}
+.ui-grid-middle{ text-align: center; background-color:#f3f3f3; border-bottom: 1px solid #ffffff; height: 100%; line-height: 30px;}
+.tab-change.on{ display: block;}
+.tab-nav.on{ display: block;}
+.dh_name_view{ width: 100%; float: left;}

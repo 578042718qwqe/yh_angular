@@ -1,0 +1,31 @@
+[
+	{
+	"name":"设置",
+	"img":"images/img/anay.png",
+	"child":
+		[
+			{
+				"name":"表格",
+				"img":"images/img/set.png",
+				"child":[
+					{"name":"基础表格","url":".simple-dynamic"},
+					{"name":"表格插件","url":".jqgrid"}
+				]
+			}
+		]
+	},{
+    	"name":"设置2",
+    	"img":"images/img/anay.png",
+    	"child":
+    		[
+    			{
+    				"name":"表格",
+    				"img":"images/img/set.png",
+    				"child":[
+    					{"name":"基础表格","url":".simple-dynamic"},
+    					{"name":"表格插件","url":".jqgrid"}
+    				]
+    			}
+    		]
+    	}
+]

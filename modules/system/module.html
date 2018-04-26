@@ -1,0 +1,38 @@
+<div ng-controller="module_dgl" class="controller-class">
+    <div id="module_dg-vie" style="margin-top: 10px; float: left;">
+        <span class="span1">名称:</span>
+             <span><input type="text" value="" class="form-control" id="seach1" data-id="name" placeholder="请输入查询条件"></span>
+        <span>
+            <span class="btn btn-primary permiss" id="module_showItemId"><i class="ace-icon glyphicon glyphicon-search"></i>查询</span>
+            <span class="btn btn-primary permiss" ng-click="module_addkaohe()" ><i class="ace-icon glyphicon glyphicon-plus"></i>新增模块</span>
+        </span>
+    </div>
+    <ui-table class="table-ui"></ui-table>
+    <!-- 模态框（Modal） -->
+    <div class="modal fade" id="module_identifier" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        {{dlgTitle}}
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="div_input"><span>模块名称:</span><input type="text" name="" placeholder="请输入名称" class="form-control input-width" ng-model="model.moduleName"></div>
+<!--                     <div class="div_input"><span>模块等级:</span><input type="number" name="" placeholder="请输入等级" class="form-control input-width"  ng-model="model.moduleGrade"></div> -->
+                    <div class="div_input"><span>父级模块:</span><input type="number" name="" placeholder="请输入父级" class="form-control input-width"  ng-model="model.moduleFather"></div>
+                    <div class="div_input"><span>模块URL:</span><input type="text" name="" placeholder="请输入URL" class="form-control input-width"  ng-model="model.moduleUrl"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" id="tijiao" ng-click="dlgSave()" >
+                        提交
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

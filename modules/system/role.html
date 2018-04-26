@@ -1,0 +1,72 @@
+<link rel="stylesheet" href="js/jquery.ztree/bootstrapStyle.css" type="text/css">
+<script type="text/javascript" src="js/jquery.ztree/jquery.ztree.core.js"></script>
+<script type="text/javascript" src="js/jquery.ztree/jquery.ztree.excheck.js"></script>
+<script type="text/javascript" src="js/jquery.ztree/jquery.ztree.exedit.js"></script>
+<div ng-controller="role_dgl" class="controller-class">
+    <div id="role_dg-vie" style="margin-top: 10px; float: left;">
+        <span class="span1">名称:</span>
+        <span><input type="text" value="" class="form-control" id="seach1" data-id="name" placeholder="请输入查询条件"></span>
+        <!-- <span><input type="text" value="" class="form-control" id="seach2" data-id="hospId2"></span> -->
+        <span>
+        <span class="btn btn-primary permiss" id="role_showItemId"><i class="ace-icon glyphicon glyphicon-search"></i>查询</span>
+        <span class="btn btn-primary permiss" id="role_addkaohe" ng-click="role_addkaohe()"><i class="ace-icon glyphicon glyphicon-plus"></i>新增角色</span>
+        <!--<span class="btn btn-primary permiss" id="role_fqx" ng-click="quanxian()"><i class="ace-icon glyphicon glyphicon-list"></i>分配权限</span>-->
+    </span>
+    </div>
+    <ui-table class="table-ui"></ui-table>
+    <!-- 模态框（Modal） -->
+    <div class="modal fade" id="role_identifier" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        {{dlgTitle}}
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="div_input"><span>角色编码:</span><input type="text" name="" class="form-control" placeholder="请输入编码" ng-model="model.roleCode"></div>
+                    <div class="div_input"><span>角色名称:</span><input type="text" name="" class="form-control" placeholder="请输入角色名"  ng-model="model.roleName"></div>
+                    <!--                     <div class="div_input"><span>car2:</span><input type="text" name="" class="form-control" ng-model="objects.car2"></div> -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <!--                     anniu('qq','#identifier'); -->
+                    <button type="button" class="btn btn-primary" id="tijiao" ng-click="dlgSave()" ng-disabled="!model.roleCode||!model.roleName">
+                        提交
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+    <!-- 模态框（Modal） -->
+    <div class="modal fade" id="role_qx" tabindex="-1" role="dialog" aria-labelledby="myModalLabe2" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabe2">
+                        {{qxTitle}}
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <ul id="treeDemo" class="ztree"></ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <!--                     anniu('qq','#identifier'); -->
+                    <button type="button" class="btn btn-primary" id="tijiao2" ng-click="Save2()">
+                        提交
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+</div>
+
+
+ 

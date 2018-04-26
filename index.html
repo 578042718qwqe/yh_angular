@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>基础数据管理系统</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/index.css" rel="stylesheet">
+  <link href="css/base.css" rel="stylesheet">
+  <link href="css/toaster.css" rel="stylesheet">
+  <!--表格注入-->
+  <link rel="stylesheet" href="css/ui-grid.css" type="text/css">
+  <!--导航栏-->
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/hds-ace.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/statevis.css" />
+  <!--js-->
+  <script src="js/angular/angular.min.js"></script>
+  <script src="js/angular/angular-animate.js"></script>
+  <script src="js/angular/angular-ui-router.js"></script>
+  <script src="js/angular/ct-ui-router-extras.js"></script>
+  <script src="js/base.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/path.js"></script>
+  <script src="js/index.js"></script>
+</head>
+<body class="full-height-layout" ng-app="routerApp" style="overflow:hidden;">
+<div style="width: 100%; height: 100%;">
+  <!--顶部-S-->
+  <div class="header-box" id="headerBox"  ng-controller="management">
+    <!--logo-S-->
+    <span class="logo-box"><img id="littlelogoImg" data-ng-src="images/newHDS.png" alt=""></span>
+    <!--logo-E-->
+    <!--导航左侧-S-->
+    <div class="nav-box">
+      <ul>
+        <li ng-repeat="data in options" ng-mouseenter="tabsSetup($index)" ng-mouseleave="model.tabs=1000">
+          <!--主菜单-S-->
+          <div class="main-nav">
+            <em><img data-ng-src="{{data.img}}"></em>
+            <span>{{data.name}}</span>
+            <i class="nav-down-arrow"></i>
+          </div>
+          <!--主菜单-E-->
+          <!--子菜单-S-->
+          <div id="submenuNavBox1" class="submenu-nav-box" ng-show="model.tabs == $index">
+            <div class="submenu-nav-content" ng-repeat="datatwo in data.child">
+              <h3><img data-ng-src="{{datatwo.img}}">{{datatwo.name}}</h3>
+              <span class="J_menuItem"   ng-repeat="datatree in datatwo.child" ui-sref="{{datatree.url}}" ng-click="dh_show(datatree.name,datatree.url,$event)">
+                                {{datatree.name}}
+                            </span>
+            </div>
+          </div>
+          <!--子菜单-E-->
+        </li>
+      </ul>
+    </div>
+    <!--导航左侧-E-->
+    <!--导航右侧-S-->
+    <div class="nav-right-box">
+      <ul>
+        <li>
+          <span class="nav-right-txt backhome"><a href="#/">主页</a></span>
+        </li>
+        <!--ng-click="showtimes = !showtimes"-->
+        <li class="nav-set" style="width:80px; height: 40px; line-height: 40px;" ng-mouseenter="showtimes = true" ng-mouseleave="showtimes = false">
+          <div class="set-icon" style="margin-left:13px;"><img src="images/img/set.png"></div>
+          <!--子菜单-S-->
+          <div id="submenuBox" class="submenu-box tab-change" style="min-height: 115px;" ng-class="{'on':showtimes}">
+            <div ng-repeat="data in guanli">
+              <!--标题块-S-->
+              <div id="submenuTit" class="submenu-tit tab-nav-tit clearfix">
+                  <div ng-repeat="datatwo in data.child">
+                     <span ng-mouseenter="menu($index)" class="{{menu_state == $index?'on':''}}">{{datatwo.name}}</span>
+                  </div>
+              </div>
+              <!--标题块-E-->
+              <!--内容块-S-->
+              <div id="submenuCongtentBox" class="submenu-congtent-box tab-nav-box" style="min-height: 95px; width:725px;">
+                <div class="submenu-congtent clearfix" ng-repeat="datatwo in data.child"  ng-show="menu_state == $index">
+                    <span class="J_menuItem {{color == $index?'oncolor':''}}" ui-sref="{{datatree.url}}({id:'ids'})" ng-repeat="datatree in datatwo.child" ng-click="updata_dh(datatree.name,datatree.url,$index)" >{{datatree.name}}</span>
+                </div>
+              </div>
+              <!--内容块-E-->
+             </div>
+          </div>
+          <!--子菜单-E-->
+        </li>
+        <li class="drop-down">
+          <div class="drop-down-title">
+            <span class="nav-right-txt userName">用户:</span>
+            <em class="nav-down-arrow"></em>
+          </div>
+          <div class="drop-down-box">
+            <a href="javascript:;" id="editPassword">修改密码</a>
+            <a href="javascript:;" >退出</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <!--导航右侧-E-->
+  </div>
+  <!--顶部-E-->
+  <div ui-view style="height: 100%; margin-top:45px;" class="inner"></div>
+</div>
+</body>
+</html>

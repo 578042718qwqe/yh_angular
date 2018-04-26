@@ -1,0 +1,70 @@
+<div ng-controller="user_dgl" class="controller-class">
+    <div id="user_dg-vie" style="margin-top: 10px; float: left;">
+        <span class="span1">名称:</span>
+        <span><input type="text" value="" class="form-control" id="seach1" data-id="name" placeholder="请输入查询条件"></span>
+        <!-- <span><input type="text" value="" class="form-control" id="seach2" data-id="hospId2"></span> -->
+        <span>
+        <span class="btn btn-primary permiss" id="user_showItemId"><i class="ace-icon glyphicon glyphicon-search"></i>查询</span>
+        <span class="btn btn-primary permiss" id="user_addkaohe" ng-click="user_addkaohe()"><i class="ace-icon glyphicon glyphicon-plus"></i>新增用户</span>
+        <!--<span class="btn btn-primary permiss" id="user_f" ng-click="fenpei($index)"><i class="ace-icon glyphicon glyphicon-list"></i>分配角色</span>-->
+    </span>
+    </div>
+    <ui-table class="table-ui"></ui-table>
+    <!-- 模态框（Modal） -->
+    <div class="modal fade" id="user_identifier" tabindex="-1" user="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        {{dlgTitle}}
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="div_input"><span>帐号:</span><input type="text" name="" class="form-control" ng-model="model.userCode" placeholder="请输入账号"></div>
+                    <div class="div_input"><span>昵称:</span><input type="text" name="" class="form-control"  ng-model="model.userName" placeholder="请输入昵称"></div>
+                    <div class="div_input"><span>密码:</span><input type="password" name="" class="form-control"  ng-model="model.userPwd" placeholder="请输入密码"></div>
+<!--                     <div class="div_input"><span>car2:</span><input type="text" name="" class="form-control" ng-model="objects.car2"></div> -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+<!--                     anniu('qq','#identifier'); -->
+                    <button type="button" class="btn btn-primary" id="tijiao" ng-click="dlgSave()" ng-disabled="!model.userCode || !model.userName || !model.userPwd">
+                        提交
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+    <!-- 模态框（Modal）2 -->
+    <div class="modal fade" id="user_fp" tabindex="-1" user="dialog" aria-labelledby="myModalLabe2" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabe2">
+                        {{title}}
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <ul >
+                        <li ng-repeat="data in obj_arr"><input type="checkbox" name="{{data.name}}" ng-checked="isSelected(data.id)" value="{{data.id}}" ng-click="updateSelection($event,data.id)">{{data.name}}</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <!--                     anniu('qq','#identifier'); -->
+                    <button type="button" class="btn btn-primary" id="tijiao2" ng-click="dlgSave2()">
+                        提交
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+</div>
+
+ 

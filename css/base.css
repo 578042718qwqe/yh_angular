@@ -1,0 +1,78 @@
+/*CSS-2017 VUE */
+a, :focus {
+    text-decoration: none;
+    outline: 0
+}
+img, object, embed {
+    border: 0;
+    outline: 0
+}
+button, input, select, textarea {
+    font-size: 100%;
+    outline: 0;
+    vertical-align: middle
+}
+em, i {
+    font-style: normal
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+td, th, ul, ol {
+    list-style: none
+}
+
+/*Foot*/
+.foot{ width:100%; min-width:1250px; height: 80px;  clear: both; line-height:30px; text-align: center; background-color: #fff; margin-top: 18px;}
+.foot-border{ border-top: 1px solid #ddd;   padding-top:25px; padding-bottom:25px;}
+.login-foot{text-align: center;  width: 700px; margin: 0 auto; margin-top:80px; line-height:25px;}
+/*logo*/
+.login{ width:350px; padding-bottom:50px; margin:100px auto auto; background-color:#f7f7f7; border: 1px solid #dddddd; border-radius:8px;}
+.login_head{ width: 100%; text-align: center;background-color: #2D528D; margin-top: 10px;}
+.login_head img{ margin-top: 10px; margin-bottom: 10px;}
+.login h3{ width: 100%; text-align: left; font-size:16px; text-indent: 2.6em;}
+.login i{margin-right:0;}
+.btn-block,.clearfix{ width: 80%; margin: 0 auto;}
+.ace-icon{ margin-right:8px;}
+.modal-footer{border-top:none;}
+.login-w{ width:850px; margin: 0 auto;}
+.login-w-l{ width:350px;float: left;}
+.login-w-r{ width:350px;float: right;}
+.login-w-l-word{ margin-top:95px; font-size: 50px; text-align: center;}
+.login-w-l-word img{ width:72%;}
+.login-w-foot{ clear: both; padding-top:25px; width: 100%;}
+/*分页*/
+.ui-grid-pager-row-count-label{display: none;}
+.ui-grid-icon-angle-down{ display: none;}
+abbr[data-original-title],abbr[title]{cursor:pointer;border: none;}
+abbr[title] { border:none;}
+/*welcome*/
+.home-body{ margin-bottom: 10px; margin-top:100px;}
+.home-class{text-align: center; padding-top: 15px; font-size: 50px; line-height: 50px; margin-top:130px;}
+.home-img{ width:350px; margin: 0 auto; text-align:center; opacity: .5;}
+.home-img img{ width: 100%;}
+/*控制器*/
+.controller-class{height:100%; float: left; margin: 0 auto; width:calc(100% - 11px); margin-left:2px;}
+/*滚动条*/
+.inner{
+    overflow:hidden;
+}
+/*滚动条样式*/
+.innerbox::-webkit-scrollbar {/*滚动条整体样式*/
+    width:10px;     /*高宽分别对应横竖滚动条的尺寸*/
+    height:8px;
+}
+.innerbox::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+    border-radius:3px;
+    -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.2);
+    background: rgba(0,0,0,0.2);
+}
+.innerbox::-webkit-scrollbar-track {/*滚动条里面轨道*/
+    -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.2);
+    border-radius: 0;
+    background: rgba(0,0,0,0.1);
+}
+/**/
+.data_maintenance-sm-8{ width:75%; float: left;}
+.data_maintenance-sm-4{ width:25%; float: left;}

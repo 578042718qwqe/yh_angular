@@ -1,0 +1,17 @@
+<div class="dh_name" ng-controller="dh_name">
+    <div class="dh_name_left fa fa-backward"></div>
+     <div class="dh_name_max" ng-show="dh_name">
+       <ul class="tabs">
+         <!--ui-sref-active="selected"-->
+           <li  class="dh_name_li" ui-sref-active="selected" ng-repeat="list in names"  ui-sref="{{list.url}}" urldata="{{list.name}}" ng-click="updata_dh2(list.name,list.url)"><div>{{list.name}}</div>
+             <i class="fa fa-times-circle" ng-click="dh_close($index)"></i>
+           </li>
+       </ul>
+     </div>
+    <div class="dh_name_right fa fa-forward"></div>
+</div>
+<div class="dh_name_view">
+    <ul>
+      <li ng-repeat="list in names"><div ng-show="$state.includes('{{list.url}}')" ui-view="{{list.url | reverse}}"></div></li>
+    </ul>
+</div>

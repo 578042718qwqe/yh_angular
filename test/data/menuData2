@@ -1,0 +1,43 @@
+[
+	{
+		"name":"系统",
+		"img":"images/img/anay.png",
+		"child":[
+			{
+				"name":"权限管理",
+				"img":"images/img/set.png",
+				"child":[
+					{"name":"资料修改","url":"home.useredit"},
+					{"name":"用户管理","url":"home.user"},
+					{"name":"角色管理","url":"home.role"},
+					{"name":"机构管理","url":"home.hosp"},
+					{"name":"模块管理","url":"home.module"},
+					{"name":"组件管理","url":"home.comp"},
+					{"name":"日志查看","url":"home.logger"}
+				]
+			},
+			{
+				"name":"基础数据",
+				"img":"images/img/set.png",
+				"child":[
+					{"name":"地区","url":"home.base_region"},
+					{"name":"科室","url":"home.base_dept"},
+					{"name":"数据字典","url":"home.dic_common"},
+					{"name":"剂型字典","url":"home.dic_form"},
+					{"name":"剂型用法","url":"home.basic_form_usage"},
+					{"name":"医保类型","url":"home.basic_ins_type"},
+					{"name":"疫苗","url":"home.basic_vaccine"},
+					{"name":"诊断","url":"home.basic_diagnose"},
+					{"name":"激素抗生素","url":"home.basic_hormone"},
+					{"name":"药品使用","url":"home.basic_med_usage"},
+					{"name":"诊疗频次","url":"home.basic_usage_freq"},
+					{"name":"手术名称","url":"home.dic_operation"},
+					{"name":"病案公共","url":"home.dic_med_record"},
+					{"name":"检查部位","url":"home.dic_palpate"},
+					{"name":"公卫统计","url":"home.dic_public_health"}
+				]
+			}
+		]
+	}
+
+]

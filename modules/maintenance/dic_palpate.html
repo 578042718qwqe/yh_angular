@@ -1,0 +1,36 @@
+<style>
+	.table-ui{height: calc(100% - 47px); width: calc(100% - 22px); margin-left:17px;}
+</style>
+<div ng-controller="dicPalpateCtrl" style="height:100%;">
+	<div class="row data_maintenance">
+		<div class="data_maintenance-sm-8" style="height: 100%; border-right: 2px solid #cccccc; padding-top:10px;">
+			<div class="form-group" style="margin-left: 15px;">
+		        <span class="data_maintenance_name">名称:</span>
+		       	<input type="text" value="" class="form-control" ng-model="filter.name" placeholder="请输入查询条件"/>
+		        <a class="btn btn-primary" ng-click="query()"><i class="ace-icon glyphicon glyphicon-search"></i>查询</a>
+		        <a class="btn btn-primary" ng-click="add()"><i class="ace-icon glyphicon glyphicon-plus"></i>新增</a>
+		    </div>
+		    <ui-table class="table-ui"></ui-table>
+		</div>
+		<div class="data_maintenance-sm-4 data_maintenance_right inner">
+			<div class="data_maintenance_right_zi innerbox">
+				<a class="btn btn-primary" ng-click="save()"><i class="ace-icon glyphicon glyphicon-ok"></i>保存</a>
+				<ul class="list-group data_maintenance_ul">
+					<li class="list-group-item"><span class="list-sp1">编码:</span><input placeholder="编码" class="form-control" ng-model="model.code"/></li>
+					<li class="list-group-item"><span class="list-sp1">名称:</span><input placeholder="名称" class="form-control" ng-model="model.name"/></li>
+					<li class="list-group-item"><span class="list-sp1">状态:</span><yh-select  yh-model="model.flag" yh-data="flags"></yh-select></li>
+					<li class="list-group-item"><span class="list-sp1">部位类型:</span><input placeholder="部位类型" class="form-control" ng-model="model.type"/></li>
+					<li class="list-group-item"><span class="list-sp1">分组:</span><input placeholder="分组" class="form-control" ng-model="model.pGroup"/></li>
+					<li class="list-group-item"><span class="list-sp1">方法:</span><input placeholder="方法" class="form-control" ng-model="model.method"/></li>
+					<li class="list-group-item"><span class="list-sp1">类别编码:</span><input type="number" placeholder="类别编码" class="form-control" ng-model="model.typeCode"/></li>
+				</ul>
+				<div class="glyphicon-region">
+					<span class="glyphicon-region-s">备注:</span><textarea placeholder="备注" class="form-control" ng-model="model.remark"></textarea>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+ 

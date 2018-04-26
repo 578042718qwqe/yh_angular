@@ -1,0 +1,91 @@
+<style>
+	.table-ui{height: calc(100% - 47px); width: calc(100% - 22px); margin-left:17px;}
+</style>
+<div ng-controller="compCtrl" style="height:100%;">
+	<div class="row data_maintenance">
+		<div class="data_maintenance-sm-8" style="height: 100%; border-right: 2px solid #cccccc; padding-top:10px;">
+			<div class="form-group" style="margin-left: 15px; float: left;">
+		        <span class="data_maintenance_name">名称:</span>
+		       	<input type="text" value="" class="form-control" ng-model="filter.name" placeholder="请输入查询条件"/>
+		        <a class="btn btn-primary permiss" ng-click="query()"><i class="ace-icon glyphicon glyphicon-search"></i>查询</a>
+		        <a class="btn btn-primary permiss" ng-click="add()"><i class="ace-icon glyphicon glyphicon-plus"></i>新增</a>
+				<a permissions="81f871e7-cd83-4b76-8518-15467ecd0088" class="btn btn-primary permiss" ng-click="add()"><i class="ace-icon glyphicon glyphicon-plus"></i>调试按钮</a>
+		    </div>
+		    <ui-table class="table-ui"></ui-table>
+		</div>
+		<div class="data_maintenance-sm-4 data_maintenance_right inner">
+			<div class="data_maintenance_right_zi innerbox">
+				<a class="btn btn-primary" ng-click="save()"><i class="ace-icon glyphicon glyphicon-ok"></i>保存</a>
+				<ul class="list-group data_maintenance_ul">
+					<li class="list-group-item"><span class="list-sp1">编码:</span><input placeholder="编码" class="form-control" ng-model="model.code" disabled="disabled"/><button type="button" class="btn btn-default" ng-click="gen()">生成</button></li>
+					<li class="list-group-item"><span class="list-sp1">名称:</span><input placeholder="名称" class="form-control" ng-model="model.name"/></li>
+					<li class="list-group-item"><span class="list-sp1">备注:</span><input placeholder="备注" class="form-control" ng-model="model.remark"/></li>
+				</ul>
+				<div class="data_maintenance_role"><i class="ace-icon glyphicon glyphicon-user"></i>角色</div>
+				<ul class="">
+					<li class="" ng-repeat="role in roles">
+						<div class="glyphicon-region" ng-init="roleItemInit(role)">
+							<div class="glyphicon-region_js">
+								<span class="list-sp1">角色:</span>
+								<span class="list-sp1">{{role.name}}</span>
+								<span><input type="checkbox" ng-model="role.check" ng-checked="role.check"/></span>
+							</div>
+							<span ng-show="role.check"><span class="data_maintenance_right_qx">权限:</span><yh-select yh-model="role.flag" yh-data="flags"></yh-select></span>
+							<span ng-show="role.check"><input placeholder="备注" class="form-control" ng-model="role.remark"/></span>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+ 
+
+
+
+<!-- <div ng-controller="comp_dgl" class="controller-class"> a-->
+<!--     <div id="comp_dg-vie" style="margin-bottom: 10px; margin-top: 10px;"> -->
+<!--         <span class="span1">查询:</span> -->
+<!--         <span><input type="text" value="" class="form-control" id="seach1" data-id="name" placeholder="请输入查询条件"></span> -->
+<!--         <span><input type="text" value="" class="form-control" id="seach2" data-id="hospId2"></span> -->
+<!--         <span> -->
+<!--         <span class="btn btn-primary" id="comp_showItemId"><i class="ace-icon glyphicon glyphicon-search"></i>查询</span> -->
+<!--         <span class="btn btn-primary" ng-click="comp_addkaohe()" ><i class="ace-icon glyphicon glyphicon-plus"></i>新增组件</span> -->
+<!--     </span> -->
+<!--     </div> -->
+<!--     <ui-table style="height: 100%;"></ui-table> -->
+<!--     模态框（Modal） -->
+<!--     <div class="modal fade" id="comp_identifier" tabindex="-1" comp="dialog" aria-labelledby="myModalLabel" aria-hidden="true"> -->
+<!--         <div class="modal-dialog"> -->
+<!--             <div class="modal-content"> -->
+<!--                 <div class="modal-header"> -->
+<!--                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> -->
+<!--                         &times; -->
+<!--                     </button> -->
+<!--                     <h4 class="modal-title" id="myModalLabel"> -->
+<!--                         {{dlgTitle}} -->
+<!--                     </h4> -->
+<!--                 </div> -->
+<!--                 <div class="modal-body"> -->
+<!--                     <div class="div_input"> -->
+<!--                     	<span>编码名称:</span><input type="text" name="" class="form-control" placeholder="点击生成" ng-model="model.compCode"> -->
+<!--                         <button type="button" class="btn btn-default" ng-click="gen()">生成</button> -->
+<!--                     </div> -->
+<!--                     <div class="div_input"><span>组件名称:</span><input type="text" name="" class="form-control"  ng-model="model.compName" placeholder="请输入名称"></div> -->
+<!-- <!--                     <div class="div_input"><span>car2:</span><input type="text" name="" class="form-control" ng-model="objects.car2"></div> - -> -->
+<!--                 </div> -->
+<!--                 <div class="modal-footer"> -->
+<!--                     <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button> -->
+<!-- <!--                     anniu('qq','#identifier'); - -> -->
+<!--                     <button type="button" class="btn btn-primary" id="tijiao" ng-click="dlgSave()" ng-disabled="!model.compName||!model.compCode"> -->
+<!--                         提交 -->
+<!--                     </button> -->
+<!--                 </div> -->
+<!--             </div>/.modal-content -->
+<!--         </div>/.modal -->
+<!--     </div> -->
+<!-- </div> -->
+
+ 

@@ -1,0 +1,17 @@
+<style>
+    #searchBtn{ padding: 0 10px; line-height: 50px; cursor: pointer;}
+    .dg-bottm{ margin-bottom: 10px;}
+    .form-control{ float: left; width: 150px; margin-right: 10px;}
+    .div_input{ width: 100%; height: 50px;}
+    .div_input span{ float: left; padding-right: 10px; line-height: 35px; width: 70px; text-align: right;}
+	.input-useredit{ float: left; width: 100%;}
+	.input-useredit span{ float: left; height: 50px; line-height:32px; padding-right:10px;}
+</style>
+<toaster-container toaster-options="{'time-out':2000,'close-button':true,'position-class': 'toast-bottom-right',}"></toaster-container>
+<div ng-controller="userEditCtrl" class="controller-class">
+	<div class="input-useredit" style="margin-top: 10px; float: left;"><span>用户编码:</span><input ng-model="model.userCode" class="form-control"/></div>
+	<!-- class="input-useredit" <span>	<div>用户名:<input ng-model="model.userName" /></div> -->
+	<div class="input-useredit"><span>用户密码:</span><input type="password" ng-model="model.userPassword" class="form-control" /></div>
+	<button ng-click="save()" class="btn btn-primary permiss"><i class="ace-icon glyphicon glyphicon-ok"></i>保存</button>
+	<!-- 	<button ng-click="fetchUser()">获取</button> -->
+</div>

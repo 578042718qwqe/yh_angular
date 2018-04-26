@@ -1,0 +1,43 @@
+<div ng-controller="logger_dgl" class="controller-class">
+    <div id="logger_dg-vie" style="margin-bottom: 10px; margin-top: 10px; float: left;">
+        <span class="span1">查询:</span>
+        <span><input type="text" value="" class="form-control" id="seach1" data-id="name" placeholder="请输入查询条件"></span>
+        <!-- <span><input type="text" value="" class="form-control" id="seach2" data-id="hospId2"></span> -->
+        <span>
+        <span class="btn btn-primary permiss" id="logger_showItemId"><i class="ace-icon glyphicon glyphicon-search"></i>查询</span>
+    </span>
+    </div>
+    <ui-table class="table-ui"></ui-table>
+    <!-- 模态框（Modal） -->
+    <div class="modal fade" id="logger_identifier" tabindex="-1" comp="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        {{dlgTitle}}
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="div_input">
+                    	<span>编码:</span><input type="text" name="" class="form-control" ng-model="model.loggerCode">
+                    	<span><button type="button" class="btn btn-default" ng-click="gen()">生成</button></span>
+                    </div>
+                    <div class="div_input"><span>组件名:</span><input type="text" name="" class="form-control"  ng-model="model.loggerName"></div>
+<!--                     <div class="div_input"><span>car2:</span><input type="text" name="" class="form-control" ng-model="objects.car2"></div> -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+<!--                     anniu('qq','#identifier'); -->
+                    <button type="button" class="btn btn-primary" id="tijiao" ng-click="dlgSave()">
+                        提交
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+</div>
+
+ 

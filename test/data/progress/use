@@ -1,0 +1,5 @@
+[
+  { "name": "admin" , "url": "home.simple-dynamic" ,"car2": "1" },
+  { "name": "admin" , "url": "home.prompt" ,"car2": "1" },
+  { "name": "admin" , "url": "home.jqgrid" ,"car2": "1" }
+]
